@@ -94,7 +94,8 @@ namespace PortalDataAccess
 
             var rows = connection.Execute(insertSql, new[]
             {
-                new {
+                new
+                {
                     category.Id,
                     category.Title,
                     category.Url,
@@ -103,7 +104,8 @@ namespace PortalDataAccess
                     category.Description,
                     category.Featured
                 },
-                new {
+                new
+                {
                     category2.Id,
                     category2.Title,
                     category2.Url,
@@ -130,10 +132,11 @@ namespace PortalDataAccess
 
         private static void GetCategory(SqlConnection connection)
         {
-            var category = connection.QueryFirstOrDefault<Category>("SELECT TOP 1 [Id], [Title] FROM [Category] WHERE [Id] = @id", new
-            {
-                id = "AF3407AA-11AE-4621-A2EF-2028B85507C4"
-            });
+            var category = connection.QueryFirstOrDefault<Category>(
+                "SELECT TOP 1 [Id], [Title] FROM [Category] WHERE [Id] = @id", new
+                {
+                    id = "AF3407AA-11AE-4621-A2EF-2028B85507C4"
+                });
 
             Console.WriteLine($"{category.Id} - {category.Title}");
         }
@@ -162,7 +165,7 @@ namespace PortalDataAccess
 
             Console.WriteLine($"{affectedRows} linha(s) afetada(s)");
         }
-        
+
         private static void ExecuteReadProcedure(SqlConnection connection)
         {
             var procedure = "[spGetCoursesByCategory]";
@@ -234,10 +237,11 @@ namespace PortalDataAccess
                 Console.WriteLine($"CareerItem: {item.Title} - Course: {item.Course.Title}");
             }
         }
-        
+
         static void OneToMany(SqlConnection connection)
         {
-            var sql = "SELECT Career.Id, Career.Title, CareerItem.CareerId, CareerItem.Title FROM Career INNER JOIN CareerItem on CareerItem.CareerId = Career.Id ORDER BY Career.Title";
+            var sql =
+                "SELECT Career.Id, Career.Title, CareerItem.CareerId, CareerItem.Title FROM Career INNER JOIN CareerItem on CareerItem.CareerId = Career.Id ORDER BY Career.Title";
 
             var careers = new List<Career>();
             var items = connection.Query<Career, CareerItem, Career>(
@@ -255,8 +259,9 @@ namespace PortalDataAccess
                     {
                         car.CareerItems.Add(careerItem);
                     }
+
                     return career;
-            }, splitOn: "CareerId");
+                }, splitOn: "CareerId");
 
             foreach (var career in careers)
             {
@@ -308,7 +313,7 @@ namespace PortalDataAccess
                 Console.WriteLine(item.Title);
             }
         }
-        
+
         static void Like(SqlConnection connection, string term)
         {
             var query = "SELECT * FROM Course WHERE Title LIKE @exp";
@@ -323,7 +328,7 @@ namespace PortalDataAccess
                 Console.WriteLine(item.Title);
             }
         }
-        
+
         private static void Transaction(SqlConnection connection)
         {
             var category = new Category
@@ -339,7 +344,7 @@ namespace PortalDataAccess
 
             var insertSql =
                 "INSERT INTO [Category] VALUES (@Id, @Title, @Url, @Summary, @Order, @Description, @Featured)";
-            
+
             connection.Open();
             using (var transaction = connection.BeginTransaction())
             {
@@ -352,8 +357,8 @@ namespace PortalDataAccess
                     category.Order,
                     category.Description,
                     category.Featured
-                },transaction);
-                
+                }, transaction);
+
                 // transaction.Rollback();
                 transaction.Commit();
 
