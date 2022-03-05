@@ -6,23 +6,27 @@ namespace Blog.Repositories
 {
     public class Repository<T> where T : class
     {
-        private readonly SqlConnection _connection;
+        public Repository(SqlConnection connection)
+        {
+            
+        }
+        // private readonly SqlConnection _connection;
+        //
+        // public Repository(SqlConnection connection) => _connection = connection;
 
-        public Repository(SqlConnection connection) => _connection = connection;
+        public IEnumerable<T> GetAll() => Database.Connection.GetAll<T>();
+        public T Get(int id) => Database.Connection.Get<T>(id);
 
-        public IEnumerable<T> GetAll() => _connection.GetAll<T>();
-        public T Get(int id) => _connection.Get<T>(id);
+        public void Create(T model) => Database.Connection.Insert(model);
 
-        public void Create(T model) => _connection.Insert(model);
+        public void Update(T model) => Database.Connection.Update(model);
 
-        public void Update(T model) => _connection.Update(model);
-
-        public void Delete(T model) => _connection.Delete(model);
+        public void Delete(T model) => Database.Connection.Delete(model);
 
         public void Delete(int id)
         {
-            var model = _connection.Get<T>(id);
-            _connection.Delete(model);
+            var model = Database.Connection.Get<T>(id);
+            Database.Connection.Delete(model);
         }
     }
 }
