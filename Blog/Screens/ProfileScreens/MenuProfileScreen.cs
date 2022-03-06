@@ -1,21 +1,21 @@
 using System;
 
-namespace Blog.Screens.PostScreens
+namespace Blog.Screens.ProfileScreens
 {
-    public class MenuPostScreen
+    public static class MenuProfileScreen
     {
         public static void Load()
         {
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("\t\tGestão de Posts");
+                Console.WriteLine("\t\tGestão de Tags");
                 Console.WriteLine("=================================================");
-                Console.WriteLine("\n\t-- Menu Posts --");
-                Console.WriteLine("\n\t1 - Listar posts com tags");
-                Console.WriteLine("\t2 - Cadastrar posts");
-                Console.WriteLine("\t3 - Atualizar posts");
-                Console.WriteLine("\t4 - Exluir posts");
+                Console.WriteLine("\n\t-- Menu Perfis --");
+                Console.WriteLine("\t1 - Listar perfis");
+                Console.WriteLine("\t2 - Cadastrar perfis");
+                Console.WriteLine("\t3 - Atualizar perfis");
+                Console.WriteLine("\t4 - Exluir perfis");
                 Console.WriteLine("\t0 - Voltar ao menu principal\n\n");
                 Console.Write("Selecione a função que deseja executar:\t");
                 var option = short.Parse(Console.ReadLine()!);
@@ -26,16 +26,16 @@ namespace Blog.Screens.PostScreens
                         Menu.Load();
                         break;
                     case 1:
-                        ListPostScreen.Load();
+                        ListProfileScreen.Load();
                         break;
                     case 2:
-                        CreatePostScreen.Load();
+                        CreateProfileScreen.Load();
                         break;
                     case 3:
-                        UpdatePostScreen.Load();
+                        UpdateProfileScreen.Load();
                         break;
                     case 4:
-                        DeletePostScreen.Load();
+                        DeleteProfileScreen.Load();
                         break;
                     default:
                         continue;

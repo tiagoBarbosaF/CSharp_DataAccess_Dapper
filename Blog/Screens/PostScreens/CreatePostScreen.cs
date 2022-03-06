@@ -26,7 +26,7 @@ namespace Blog.Screens.PostScreens
             Console.Write("\n\tInsira o Id de uma das categorias abaixo: ");
             var categoryId = Console.ReadLine();
             Console.WriteLine("\n\tAutor\n");
-            ListUsersScreen.ListUsers();
+            ListUsersRolesScreen.ListUsers();
             Console.Write("\n\tInsira o Id de um(a) autor(ar) abaixo: ");
             var authorId = Console.ReadLine();
 

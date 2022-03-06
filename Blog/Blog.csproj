@@ -12,7 +12,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Screens\RoleScreens" />
+    <Compile Remove="Screens\RoleScreens\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Screens\RoleScreens\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Screens\RoleScreens\**" />
   </ItemGroup>
 
 </Project>

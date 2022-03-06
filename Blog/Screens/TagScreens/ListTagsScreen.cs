@@ -11,16 +11,16 @@ namespace Blog.Screens.TagScreens
             Console.Clear();
             Console.WriteLine("\tLista de tags");
             Console.WriteLine("-----------------------------------------");
-            List();
+            ListTags();
             Console.ReadKey();
             MenuTagScreen.Load();
         }
 
-        private static void List()
+        public static void ListTags()
         {
             var repository = new Repository<Tag>(Database.Connection);
             var tags = repository.GetAll();
-            foreach (var item in tags) Console.WriteLine($"\tTag: {item.Id} - {item.Name} ({item.Slug})");
+            foreach (var item in tags) Console.WriteLine($"\t\t{item.Id} - {item.Name} ({item.Slug})");
         }
     }
 }

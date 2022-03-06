@@ -5,7 +5,7 @@ namespace Blog.Models
     [Table("[UserRole]")]
     public class UserRole
     {
-        public User UserId { get; set; }
-        public Role RoleId { get; set; }
+        public int UserId { get; set; }
+        public int RoleId { get; set; }
     }
 }

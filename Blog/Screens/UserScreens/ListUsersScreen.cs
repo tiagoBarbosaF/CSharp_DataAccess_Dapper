@@ -25,11 +25,7 @@ namespace Blog.Screens.UserScreens
 
             foreach (var item in users)
             {
-                Console.WriteLine($"\t\tUsuário: {item.Id} - {item.Name}, {item.Email}");
-                foreach (var role in item.Roles)
-                {
-                    Console.WriteLine($"\t\t - {role.Id} - {role.Name}, ({role.Slug})");
-                }
+                Console.WriteLine($"\tUsuário: {item.Name}, {item.Email}");
             }
         }
     }

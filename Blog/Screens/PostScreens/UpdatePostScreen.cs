@@ -30,7 +30,7 @@ namespace Blog.Screens.PostScreens
             Console.WriteLine("\tAutor");
             Console.Write("\tEInsira o Id de um(a) autor(ar) abaixo: ");
             var authorId = Console.ReadLine();
-            ListUsersScreen.ListUsers();
+            ListUsersRolesScreen.ListUsers();
 
             UpdatePost(new Post
             {

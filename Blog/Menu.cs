@@ -1,6 +1,8 @@
 using System;
 using Blog.Screens.CategoryScreens;
+using Blog.Screens.Links;
 using Blog.Screens.PostScreens;
+using Blog.Screens.ProfileScreens;
 using Blog.Screens.TagScreens;
 using Blog.Screens.UserScreens;
 
@@ -21,9 +23,8 @@ namespace Blog
                 Console.WriteLine("\t3 - Gestão de categoria");
                 Console.WriteLine("\t4 - Gestão de tag");
                 Console.WriteLine("\t5 - Gestão de postagens");
-                Console.WriteLine("\t6 - Vincular perfil/usuário");
-                Console.WriteLine("\t7 - Vincular post/tag");
-                Console.WriteLine("\t8 - Relatórios\n\n");
+                Console.WriteLine("\t6 - Vinculos");
+                Console.WriteLine("\t7 - Relatórios\n\n");
                 Console.Write("Selecione a função que deseja executar:\t");
                 var option = short.Parse(Console.ReadLine()!);
 
@@ -33,7 +34,7 @@ namespace Blog
                         MenuUserScreen.Load();
                         break;
                     case 2:
-                        // CreateTagsScreen.Load();
+                        MenuProfileScreen.Load();
                         break;
                     case 3:
                         MenuCategoryScreen.Load();
@@ -45,10 +46,7 @@ namespace Blog
                         MenuPostScreen.Load();
                         break;
                     case 6:
-                        // MenuTagScreen.Load();
-                        break;
-                    case 7:
-                        // MenuTagScreen.Load();
+                        MenuLinkScreen.Load();
                         break;
                     default:
                         continue;

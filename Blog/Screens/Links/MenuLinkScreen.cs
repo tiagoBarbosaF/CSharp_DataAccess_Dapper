@@ -1,21 +1,20 @@
 using System;
 
-namespace Blog.Screens.PostScreens
+namespace Blog.Screens.Links
 {
-    public class MenuPostScreen
+    public class MenuLinkScreen
     {
         public static void Load()
         {
+
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("\t\tGestão de Posts");
+                Console.WriteLine("\t\tVinculos");
                 Console.WriteLine("=================================================");
-                Console.WriteLine("\n\t-- Menu Posts --");
-                Console.WriteLine("\n\t1 - Listar posts com tags");
-                Console.WriteLine("\t2 - Cadastrar posts");
-                Console.WriteLine("\t3 - Atualizar posts");
-                Console.WriteLine("\t4 - Exluir posts");
+                Console.WriteLine("\n\t-- Menu de vinculos --");
+                Console.WriteLine("\n\t1 - Vincular Usuário ao perfil");
+                Console.WriteLine("\t2 - Vincular Postagem a Tag");
                 Console.WriteLine("\t0 - Voltar ao menu principal\n\n");
                 Console.Write("Selecione a função que deseja executar:\t");
                 var option = short.Parse(Console.ReadLine()!);
@@ -26,20 +25,15 @@ namespace Blog.Screens.PostScreens
                         Menu.Load();
                         break;
                     case 1:
-                        ListPostScreen.Load();
+                        LinkUserProfileScreen.Load();
                         break;
                     case 2:
-                        CreatePostScreen.Load();
-                        break;
-                    case 3:
-                        UpdatePostScreen.Load();
-                        break;
-                    case 4:
-                        DeletePostScreen.Load();
+                        LinkPostTagScreen.Load();
                         break;
                     default:
                         continue;
                 }
+
                 break;
             }
         }

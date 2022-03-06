@@ -5,7 +5,7 @@ namespace Blog.Models
     [Table("[PostTag]")]
     public class PostTag
     {
-        public Post PostId { get; set; }
-        public Tag TagId { get; set; }
+        public int PostId { get; set; }
+        public int TagId { get; set; }
     }
 }
